@@ -82,16 +82,15 @@ func start_training(charName, charClass string) string {
 		fmt.Print("Введи команду: ")
 		fmt.Scanf("%s\n", &cmd)
 
-		if cmd == "attack" {
+		switch {
+		case cmd == "attack":
 			fmt.Println(attack(charName, charClass))
-		}
-
-		if cmd == "defence" {
+		case cmd == "defence":
 			fmt.Println(defence(charName, charClass))
-		}
-
-		if cmd == "special" {
+		case cmd == "special":
 			fmt.Println(special(charName, charClass))
+		default:
+			fmt.Println("неизвестная команда")
 		}
 	}
 
@@ -134,7 +133,7 @@ func main() {
 	fmt.Println("Ты можешь выбрать один из трёх путей силы:")
 	fmt.Println("Воитель, Маг, Лекарь")
 
-	charClass := choise_char_class()
+	charClass := choiseCharClass()
 
 	fmt.Println(start_training(charName, charClass))
 }
